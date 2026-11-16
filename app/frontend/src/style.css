@@ -208,7 +208,7 @@ button:disabled {
   align-items: center;
   justify-content: space-between;
   gap: .85rem;
-  padding: .65rem clamp(.85rem, 2.2vw, 1.75rem);
+  padding: .45rem clamp(.85rem, 2.2vw, 1.75rem);
   background: #ffffffeb;
   color: #102640;
   border-bottom: 1px solid #d5e4f5;
@@ -241,9 +241,9 @@ button:disabled {
 }
 .vl-shell-logo img {
   display: block;
-  width: 6.8rem;
-  height: auto;
-  max-height: 2.35rem;
+  width: auto;
+  height: 3.75rem;
+  max-height: 3.75rem;
   object-fit: contain;
   border-radius: .35rem;
 }
@@ -1064,12 +1064,13 @@ button:disabled {
     gap: .35rem;
   }
   .vl-shell-logo img {
-    width: 5.4rem;
+    height: 3rem;
+    width: auto;
   }
 }
 
 /* ==========================================================================
-   VitaLink - Área de Carga de Fotografías (PhotoUploadArea)
+   Tortuguero Huellas - Área de Carga de Fotografías (PhotoUploadArea)
    ========================================================================== */
 
 .vl-photo-field {
@@ -1277,7 +1278,7 @@ button:disabled {
 }
 
 /* ==========================================================================
-   VITALINK SPLASH & LOADER: HUELLITAS CAMINANDO EN CÍRCULO
+   TORTUGUERO HUELLAS SPLASH & LOADER: HUELLITAS CAMINANDO EN CÍRCULO
    ========================================================================== */
 
 :root {

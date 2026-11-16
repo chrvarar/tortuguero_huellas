@@ -1,22 +1,22 @@
-# Memoria de VitaLink
+# Memoria de Tortuguero Huellas
 
 ## Acuerdos vigentes
 
-- **Sponsor.** Finding Home Project by BIENVET es la organización matriz que respalda y financia VitaLink, con miras a ofrecerlo a instituciones públicas y privadas de Costa Rica. La demo puede usar sus perfiles de adopción, fotos e historias autorizados.
+- **Sponsor y Marca.** Finding Home Project by BIENVET respalda el programa. El cliente y marca vigente de esta versión es **Tortuguero Huellas**, enfocado en la identificación y bienestar animal con alcance cantonal y territorial. La identidad visual incorpora el logo oficial `th-logo-739.jpeg` de la carpeta `documentacion/`, adaptado a dimensiones de UI proporcionales.
 
 - **Fuente de verdad.** `app/docs/` reúne las decisiones, los contratos, las especificaciones y el plan de desarrollo. `app/` contiene la aplicación. `documentacion/` es el espacio del usuario y del sponsor. Los cambios a su contenido requieren una solicitud explícita.
 - **Gobierno.** El usuario representa al sponsor y tiene la decisión final. Codex coordina los 12 roles de subagentes, integra su trabajo y verifica las entregas. El detalle operativo y la matriz de roles están en [AGENTS.md](../AGENTS.md).
 - **Forma de trabajo.** Desarrollo guiado por especificaciones. El plan se construirá a partir de los acuerdos y guiará la implementación una vez acordado. El ciclo abarca análisis, diseño, desarrollo, pruebas, despliegue y verificación posterior.
 - **Idioma y codificación.** Español costarricense; la portada pública se dirige a la persona con «usted» y conserva las acciones en primera persona. Archivos de texto en UTF-8. Verificar la presentación de tildes, ñ, signos y emojis para prevenir mojibake.
-- **Pruebas.** Durante el desarrollo, ejecutar pruebas unitarias y verificaciones focalizadas. Cuando el usuario solicite explícitamente commit y sincronización del código, coordinar con QA, Testing y Auditoría la validación robusta, incluidos los arneses y guardrails (WireRails) aplicables, antes de publicar. Para esta entrega pasaron `first-delivery.ps1`, `remember-session.ps1`, `user-roles.ps1`, `npm test` y `npm run build`; la auditoría revisó rama, catálogo territorial, secretos y archivos preparados.
-- **Git.** La rama de trabajo es `vitalink-v1.0.0`. Los commits usan el asunto `[AAAA-MM-DD HH:mm:ss -06:00] Comentario del cambio`, con hora real de Costa Rica y comentario en español. Al sincronizar, incluir los archivos del proyecto, excluir temporales y verificar que las ramas local y remota coincidan.
+- **Pruebas.** Durante el desarrollo, ejecutar pruebas unitarias y verificaciones focalizadas. Cuando el usuario solicite explícitamente commit y sincronización del código, coordinar con QA, Testing y Auditoría la validación robusta, incluidos los arneses y guardrails (WireRails) aplicables, antes de publicar. Para esta entrega pasaron `npm test` y `npm run build` en Vite; la auditoría revisó catálogo territorial, secretos y archivos preparados.
+- **Git.** La rama de trabajo principal es `main`. Los commits usan formato descriptivo en español con fecha y hora de Costa Rica. Al sincronizar, incluir los archivos del proyecto, excluir temporales y verificar que las ramas local y remota coincidan.
 
 ## Tecnología acordada
 
 - **Frontend.** React, Vite, JavaScript y Tailwind CSS.
 - **Backend.** API en PHP con CodeIgniter 4 para la primera versión.
-- **Base de datos.** MySQL como opción prevista y MariaDB de XAMPP como alternativa local. En XAMPP se verificaron los binarios de PHP 8.5.12 y MariaDB 10.11.16. En la nube se desplegó sobre MariaDB/MySQL en AlwaysData (`mysql-vitalink.alwaysdata.net`).
-- **Demo y despliegue público.** Entorno gratuito configurado y operativo en AlwaysData bajo la URL pública `https://vitalink.alwaysdata.net`. El despliegue incluye frontend compilado integrado con el backend en PHP 8.3, rutas de SPA unificadas para escaneo móvil de QR (`/ficha/{codigo}`) que despliegan la tarjeta del animal en una ventana modal interactiva sobre la portada pública, cola de peticiones API serializada y recursos visuales clave (logo y arte de bienvenida) embebidos como URIs en base64 para carga instantánea.
+- **Base de datos.** MySQL como opción prevista y MariaDB de XAMPP como alternativa local. En XAMPP se verificaron los binarios de PHP 8.5.12 y MariaDB 10.11.16. En la nube se prevé despliegue sobre MariaDB/MySQL en AlwaysData.
+- **Demo y despliegue público.** Entorno gratuito en AlwaysData bajo la URL pública acordada (ej. `https://tortuguerohuellas.alwaysdata.net`). El despliegue incluye frontend compilado integrado con el backend en PHP 8.3/8.4, rutas de SPA unificadas para escaneo móvil de QR (`/ficha/{codigo}`) que despliegan la tarjeta del animal en una ventana modal interactiva sobre la portada pública, cola de peticiones API serializada y recursos visuales clave (logo cuadrado oficial de Tortuguero Huellas y arte de bienvenida) embebidos como URIs en base64 para carga instantánea.
 
 ## Roles de la aplicación
 

@@ -59,7 +59,7 @@ try {
     });
 
     await page.goto(origin, { waitUntil: 'domcontentloaded' });
-    await page.getByRole('heading', { name: 'VitaLink', level: 1 }).waitFor();
+    await page.getByRole('heading', { name: 'Tortuguero Huellas', level: 1 }).waitFor();
     assert.equal(await page.locator('.vl-hero video').count(), 0);
     await page.locator('.vl-hero img.vl-hero-media').waitFor();
     assert.equal(await page.locator('.vl-video-control').count(), 0);
@@ -151,7 +151,7 @@ try {
     await page.screenshot({ path: `tmp/landing-check/${viewport.width}.png`, fullPage: true });
 
     await page.locator('.vl-primary-actions').getByRole('button', { name: 'Registrar a mi compañero animal' }).click();
-    await page.getByRole('dialog').getByRole('heading', { name: 'Ingresar a VitaLink' }).waitFor();
+    await page.getByRole('dialog').getByRole('heading', { name: 'Ingresar a Tortuguero Huellas' }).waitFor();
     await page.getByRole('dialog').getByRole('button', { name: '¿No tiene cuenta? Registrarse' }).click();
     await page.getByRole('dialog').getByRole('heading', { name: 'Crear cuenta' }).waitFor();
     await page.getByRole('dialog').getByLabel('Nombre completo').fill('Persona Demo');

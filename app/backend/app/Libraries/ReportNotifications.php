@@ -104,7 +104,7 @@ class ReportNotifications
             return [];
         }
 
-        $origin = (string) env('VITALINK_PUBLIC_ORIGIN', 'http://127.0.0.1:5173');
+        $origin = (string) (env('TORTUGUERO_HUELLAS_PUBLIC_ORIGIN') ?? env('VITALINK_PUBLIC_ORIGIN', 'http://127.0.0.1:5173'));
         $token = bin2hex(random_bytes(32));
 
         return [
@@ -123,7 +123,7 @@ class ReportNotifications
 
     private function adminEmail(): string
     {
-        $email = env('VITALINK_DEMO_ADMIN_EMAIL', 'administrador@example.test');
+        $email = env('TORTUGUERO_HUELLAS_DEMO_ADMIN_EMAIL') ?? env('VITALINK_DEMO_ADMIN_EMAIL', 'administrador@example.test');
         if (! is_string($email) || filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
             throw new RuntimeException('El correo de demostración de Administración no es válido.');
         }

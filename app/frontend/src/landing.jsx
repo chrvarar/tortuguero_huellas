@@ -36,7 +36,7 @@ function Hero({ openModal }) {
     <img src={poster} className="vl-hero-media" alt="" fetchPriority="high" />
     <div className="vl-hero-copy">
       <p className="vl-kicker">{say('COSTA RICA · BIENESTAR ANIMAL', 'COSTA RICA · ANIMAL WELFARE', 'COSTA RICA · TIERSCHUTZ')}</p>
-      <h1 id="hero-title">Vita<span>Link</span></h1>
+      <h1 id="hero-title">Tortuguero <span>Huellas</span></h1>
       <p className="vl-hero-subtitle">{say('Identificación y bienestar animal en Costa Rica', 'Animal identification and welfare in Costa Rica', 'Tierkennzeichnung und Tierschutz in Costa Rica')}</p>
       <p>{say('Una identidad para cada compañero animal.', 'An identity for every animal companion.', 'Eine Identität für jedes Haustier.')}</p>
     </div>
@@ -228,7 +228,7 @@ function AdoptionCard({ profile, onStory, openModal, isClone = false, reduced = 
           <div className="vl-card-front" aria-hidden={flipped || undefined} inert={flipped}>
             <div className="vl-card-media">
               {image ? <img src={image} alt={profile.photo ? `Foto de ${profile.name}` : 'Foto ilustrativa de un perro'} loading="lazy" draggable={false} onError={() => { if (!imgFallback) setImgFallback(true); }} />
-                : <div className="vl-card-placeholder" aria-hidden="true">VitaLink</div>}
+                : <div className="vl-card-placeholder" aria-hidden="true">Tortuguero Huellas</div>}
               <span className="vl-species-badge">{`🐶 ${say('Perro', 'Dog', 'Hund')}`}</span>
             </div>
             <div className="vl-card-copy">
@@ -486,7 +486,7 @@ function AccessForm({ kind, intent, submit, onSwitch, onNavigate }) {
   return <div className="vl-access-form">
     <p>{registration ? say('Complete sus datos para crear una cuenta de Usuario general.', 'Enter your details to create a general user account.', 'Geben Sie Ihre Daten ein, um ein allgemeines Benutzerkonto zu erstellen.')
       : intent === 'animal' ? say('Ingrese para registrar a su compañero animal.', 'Sign in to register your animal companion.', 'Melden Sie sich an, um Ihr Haustier zu registrieren.')
-        : say('Ingrese con su cuenta de VitaLink.', 'Sign in with your VitaLink account.', 'Melden Sie sich mit Ihrem VitaLink-Konto an.')}</p>
+        : say('Ingrese con su cuenta de Tortuguero Huellas.', 'Sign in with your Tortuguero Huellas account.', 'Melden Sie sich mit Ihrem Tortuguero Huellas-Konto an.')}</p>
     {error && !errorField && <p role="alert" className="notice">{error}</p>}
     <form onSubmit={save}>
       {registration && <><label>{say('Nombre completo', 'Full name', 'Vollständiger Name')}<input name="display_name" autoComplete="name" required maxLength={120} aria-invalid={errorField === 'display_name'} aria-describedby={errorField === 'display_name' ? 'vl-access-error' : undefined} /></label>
@@ -539,8 +539,8 @@ function FichaModalContent({
         </h3>
         <p>
           {isRetired
-            ? say('Este collar QR fue desactivado o reemplazado por la persona responsable. Si encontró a este compañero, puede reportar el hallazgo para que VitaLink brinde seguimiento.',
-                'This QR collar was disabled or replaced. If you found this animal, you can report it so VitaLink can follow up.',
+            ? say('Este collar QR fue desactivado o reemplazado por la persona responsable. Si encontró a este compañero, puede reportar el hallazgo para que Tortuguero Huellas brinde seguimiento.',
+                'This QR collar was disabled or replaced. If you found this animal, you can report it so Tortuguero Huellas can follow up.',
                 'Dieses QR-Halsband wurde deaktiviert oder ersetzt. Wenn Sie dieses Tier gefunden haben, können Sie einen Fund melden.')
             : say('No encontramos un expediente activo vinculado a este código. Puede deberse a un código no registrado o archivado.',
                 'We could not find an active record linked to this code. It may be unregistered or archived.',
@@ -640,7 +640,7 @@ function FichaModalContent({
           </div>
         ) : (
           <div className="vl-ficha-verified-tag">
-            <span>✨ {say('Identificación activa con QR VitaLink', 'Active VitaLink QR Identification', 'Aktive VitaLink QR-Kennzeichnung')} · San José</span>
+            <span>✨ {say('Identificación activa con QR Tortuguero Huellas', 'Active Tortuguero Huellas QR Identification', 'Aktive Tortuguero Huellas QR-Kennzeichnung')} · San José</span>
           </div>
         )}
 
@@ -666,9 +666,9 @@ function FichaModalContent({
         </dl>
 
         <p className="vl-ficha-privacy-note">
-          🔒 {say('VitaLink protege los datos personales. El contacto se realiza de forma privada y segura.',
-            'VitaLink protects personal data. Contact is mediated safely and privately.',
-            'VitaLink schützt personenbezogene Daten. Die Kontaktaufnahme erfolgt sicher und vertraulich.')}
+          🔒 {say('Tortuguero Huellas protege los datos personales. El contacto se realiza de forma privada y segura.',
+            'Tortuguero Huellas protects personal data. Contact is mediated safely and privately.',
+            'Tortuguero Huellas schützt personenbezogene Daten. Die Kontaktaufnahme erfolgt sicher und vertraulich.')}
         </p>
 
         <div className="vl-ficha-actions">
@@ -717,7 +717,7 @@ function LandingDialog({
     hallazgo: say('Encontré un animal', 'I found an animal', 'Ich habe ein Tier gefunden'),
     extravio: say('Reportar extravío', 'Report a missing animal', 'Tier als vermisst melden'),
     registro: say('Crear cuenta', 'Create account', 'Konto erstellen'),
-    ingreso: say('Ingresar a VitaLink', 'Sign in to VitaLink', 'Bei VitaLink anmelden'),
+    ingreso: say('Ingresar a Tortuguero Huellas', 'Sign in to Tortuguero Huellas', 'Bei Tortuguero Huellas anmelden'),
     adopcion: say('Quiero adoptar', 'I want to adopt', 'Ich möchte adoptieren'),
     ficha: modal.subView === 'hallazgo'
       ? say('Reportar hallazgo', 'Report found animal', 'Fund melden')
@@ -845,7 +845,7 @@ export function Landing({ api, submit, onNavigate, initialFicha, onClearFicha })
   return <div className="vl-landing">
     <a className="vl-skip" href="#contenido">{say('Saltar al contenido', 'Skip to content', 'Zum Inhalt springen')}</a>
     <header className="vl-header">
-      <a href="/" aria-label="VitaLink, inicio"><img src={logo} alt="VitaLink" /></a>
+      <a href="/" aria-label="Tortuguero Huellas, inicio"><img src={logo} alt="Tortuguero Huellas" /></a>
       <div className="vl-header-controls"><FlagLanguageSelect /><button type="button" className="vl-button" onClick={() => openModal('ingreso')}>{say('Iniciar sesión', 'Sign in', 'Anmelden')}</button></div>
     </header>
     <main id="contenido">
@@ -878,15 +878,15 @@ export function Landing({ api, submit, onNavigate, initialFicha, onClearFicha })
         <div className="vl-split">
           <figure className="vl-community-figure">
             <img src={team} alt="Integrantes del equipo cuidando a un perro" loading="lazy" />
-            <figcaption>{say('El equipo de VitaLink en sus labores.', 'The VitaLink team at work.', 'Das VitaLink-Team bei der Arbeit.')}</figcaption>
+            <figcaption>{say('El equipo de Tortuguero Huellas en sus labores.', 'The Tortuguero Huellas team at work.', 'Das Tortuguero Huellas-Team bei der Arbeit.')}</figcaption>
           </figure>
           <div className="vl-community-intro">
             <p className="vl-kicker">04 / {say('BIENESTAR LOCAL', 'LOCAL ANIMAL WELFARE', 'TIERWOHL VOR ORT')}</p>
-            <h2 id="comunidad-title">{say('VitaLink en su comunidad', 'VitaLink in your community', 'VitaLink in deiner Gemeinde')}</h2>
+            <h2 id="comunidad-title">{say('Tortuguero Huellas en su comunidad', 'Tortuguero Huellas in your community', 'Tortuguero Huellas in deiner Gemeinde')}</h2>
             <p className="vl-pill"><span className="vl-pill-dot" aria-hidden="true" />San José · {say('Cantón central · Piloto de demostración', 'Central canton · Demo pilot', 'Zentralkanton · Pilotdemo')}</p>
             <p>{say('Cada reporte ayuda a conocer mejor a los perros registrados en el cantón. Esa información puede orientar futuras campañas de cuido y adopción.', 'Every report helps us understand which dogs are registered in the canton and plan future care and adoption initiatives.', 'Jede Meldung hilft, die registrierten Hunde im Kanton besser zu erfassen und künftige Pflege- und Adoptionsaktionen zu planen.')}</p>
-            <p>{say('VitaLink busca coordinar con organizaciones y profesionales veterinarios para impulsar vacunación, esterilización y atención cuando un animal lo necesite.', 'VitaLink aims to work with organizations and veterinarians to support vaccination, sterilization and care when needed.', 'VitaLink möchte mit Organisationen und Tierärzten zusammenarbeiten, um Impfungen, Kastrationen und die Versorgung von Tieren zu fördern.')}</p>
-            <p className="vl-fine">{say('Correo de muestra: info@Vitalink.com (sin habilitar).', 'Example email: info@Vitalink.com (inactive).', 'Beispieladresse: info@Vitalink.com (inaktiv).')}</p>
+            <p>{say('Tortuguero Huellas busca coordinar con organizaciones y profesionales veterinarios para impulsar vacunación, esterilización y atención cuando un animal lo necesite.', 'Tortuguero Huellas aims to work with organizations and veterinarians to support vaccination, sterilization and care when needed.', 'Tortuguero Huellas möchte mit Organisationen und Tierärzten zusammenarbeiten, um Impfungen, Kastrationen und die Versorgung von Tieren zu fördern.')}</p>
+            <p className="vl-fine">{say('Correo de muestra: info@tortuguerohuellas.com (sin habilitar).', 'Example email: info@tortuguerohuellas.com (inactive).', 'Beispieladresse: info@tortuguerohuellas.com (inaktiv).')}</p>
           </div>
         </div>
         <div className="vl-community-pillars" aria-label={say('Pilares de acción comunitaria', 'Community action pillars', 'Säulen der Gemeindearbeit')}>
@@ -908,7 +908,7 @@ export function Landing({ api, submit, onNavigate, initialFicha, onClearFicha })
               <strong>{say('CENSO Y REGISTRO ACTIVO', 'ACTIVE CENSUS & REGISTRY', 'AKTIVE ERFASSUNG & REGISTER')}</strong>
             </h3>
             <p>{say('Cada expediente de perro con hogar, en calle o en albergue nos permite organizar el registro cantonal y orientar campañas locales.', 'Every record of a dog in a home, on the street, or in a shelter helps organize the canton registry and guide local campaigns.', 'Jede Akte eines Hundes im Zuhause, auf der Straße oder im Tierheim hilft, das kantonale Register zu ordnen und Kampagnen zu planen.')}</p>
-            <button type="button" className="vl-pillar-btn" onClick={() => openModal('cuenta')}>{say('Regístrese en VitaLink', 'Create a VitaLink account', 'VitaLink-Konto erstellen')}</button>
+            <button type="button" className="vl-pillar-btn" onClick={() => openModal('cuenta')}>{say('Regístrese en Tortuguero Huellas', 'Create a Tortuguero Huellas account', 'Tortuguero Huellas-Konto erstellen')}</button>
           </article>
           <article className="vl-pillar-card">
             <div className="vl-pillar-icon" aria-hidden="true">
@@ -949,7 +949,7 @@ export function Landing({ api, submit, onNavigate, initialFicha, onClearFicha })
             <p className="vl-kicker">05 / {say('TRABAJO CONJUNTO', 'WORKING TOGETHER', 'ZUSAMMENARBEIT')}</p>
             <h2 id="organizaciones-title">{say('Para municipalidades y organizaciones', 'For municipalities and organizations', 'Für Gemeinden und Organisationen')}</h2>
             <h3>{say('Datos del territorio para decidir dónde actuar', 'Local data to decide where to act', 'Lokale Daten für gezielte Maßnahmen')}</h3>
-            <p>{say('VitaLink reúne el censo de compañeros animales, la identificación por QR y el seguimiento de reportes. Así, cada organización puede conocer los casos registrados en su zona y coordinar qué hacer cuando un animal necesita atención.', 'VitaLink brings together animal census data, QR identification and report tracking so organizations can review local cases and coordinate care.', 'VitaLink bündelt Bestandsdaten, QR-Kennzeichnung und die Bearbeitung von Meldungen, damit Organisationen Fälle vor Ort prüfen und Hilfe koordinieren können.')}</p>
+            <p>{say('Tortuguero Huellas reúne el censo de compañeros animales, la identificación por QR y el seguimiento de reportes. Así, cada organización puede conocer los casos registrados en su zona y coordinar qué hacer cuando un animal necesita atención.', 'Tortuguero Huellas brings together animal census data, QR identification and report tracking so organizations can review local cases and coordinate care.', 'Tortuguero Huellas bündelt Bestandsdaten, QR-Kennzeichnung und die Bearbeitung von Meldungen, damit Organisationen Fälle vor Ort prüfen und Hilfe koordinieren können.')}</p>
             <div className="vl-org-chips" aria-label={say('Capacidades clave del programa', 'Key program capabilities', 'Wichtige Programmfunktionen')}>
               <span className="vl-org-chip"><span className="vl-org-chip-dot" aria-hidden="true" />{say('Censo territorial activo', 'Active territorial census', 'Aktive Gebietserfassung')}</span>
               <span className="vl-org-chip"><span className="vl-org-chip-dot" aria-hidden="true" />{say('Trazabilidad con QR', 'QR traceability', 'QR-Rückverfolgbarkeit')}</span>
@@ -968,7 +968,7 @@ export function Landing({ api, submit, onNavigate, initialFicha, onClearFicha })
               </div>
             </div>
           </div>
-          <div className="vl-org-showcase" aria-label={say('Equipo de VitaLink en campo y clínica', 'VitaLink team in the field and clinic', 'VitaLink-Team im Einsatz und in der Klinik')}>
+          <div className="vl-org-showcase" aria-label={say('Equipo de Tortuguero Huellas en campo y clínica', 'Tortuguero Huellas team in the field and clinic', 'Tortuguero Huellas-Team im Einsatz und in der Klinik')}>
             <figure className="vl-org-photo vl-org-photo-main">
               <img src={fieldwork} alt={say('Integrantes del equipo organizando materiales de trabajo en campo', 'Team members organizing fieldwork supplies', 'Teammitglieder beim Organisieren von Arbeitsmaterial im Außeneinsatz')} loading="lazy" />
               <figcaption><span className="vl-pill-dot" aria-hidden="true" />{say('Logística y censo en campo', 'Field logistics & census', 'Logistik & Erfassung vor Ort')}</figcaption>
@@ -1032,7 +1032,7 @@ export function Landing({ api, submit, onNavigate, initialFicha, onClearFicha })
         </div>
       </section>
     </main>
-    <footer>© 2026 VitaLink · {say('En asociación con', 'In partnership with', 'In Zusammenarbeit mit')} Finding Home Project by BIENVET</footer>
+    <footer>© 2026 Tortuguero Huellas · {say('En asociación con', 'In partnership with', 'In Zusammenarbeit mit')} Finding Home Project by BIENVET</footer>
     {modal && <LandingDialog
       modal={modal}
       api={api}

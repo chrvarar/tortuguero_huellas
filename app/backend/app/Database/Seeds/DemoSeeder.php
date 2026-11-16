@@ -9,7 +9,7 @@ class DemoSeeder extends Seeder
 {
     public function run()
     {
-        if (ENVIRONMENT !== 'development' || env('VITALINK_DEMO_SEED', false) !== true) {
+        if (ENVIRONMENT !== 'development' || (env('TORTUGUERO_HUELLAS_DEMO_SEED', false) !== true && env('VITALINK_DEMO_SEED', false) !== true)) {
             throw new RuntimeException('Los datos de demo requieren desarrollo local habilitado explícitamente.');
         }
 

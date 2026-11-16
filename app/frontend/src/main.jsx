@@ -35,7 +35,7 @@ async function rawFetchApi(path, fetchOptions, language) {
 }
 
 async function performApiCall(path, fetchOptions) {
-  const language = localStorage.getItem('vitalink-language') || 'es-CR';
+  const language = localStorage.getItem('tortuguero-huellas-language') || localStorage.getItem('vitalink-language') || 'es-CR';
   splashNotifier.startRequest();
   const task = requestQueue.then(
     () => rawFetchApi(path, fetchOptions, language),
@@ -330,7 +330,7 @@ function App({ code, reportKind, adoptionPath, replyToken }) {
       <div className="vl-qr-showcase">
         {qr && <div className="vl-qr-frame"><img src={qr} alt={`${say('Código QR de', 'QR code for', 'QR-Code für')} ${created.name}`} /></div>}
         <div className="grid gap-2 content-start">
-          {qr && <a className="button" href={qr} download={`vitalink-${created.code}.png`}>{say('Descargar QR', 'Download QR code', 'QR-Code herunterladen')}</a>}
+          {qr && <a className="button" href={qr} download={`tortuguero-huellas-${created.code}.png`}>{say('Descargar QR', 'Download QR code', 'QR-Code herunterladen')}</a>}
           {created.url ? <a className="vl-public-link" href={created.url} target="_blank" rel="noreferrer">{say('Abrir ficha pública', 'Open public profile', 'Öffentliches Profil öffnen')} ↗</a> : <p>{say('QR desactivado.', 'QR code disabled.', 'QR-Code deaktiviert.')}</p>}
           {manager && !archived && <div className="flex flex-wrap gap-2 mt-1">
             <button type="button" className="secondary" disabled={busy} onClick={() => changeQr('reemplazar')}>{created.code ? say('Reemplazar QR', 'Replace QR code', 'QR-Code ersetzen') : say('Generar QR nuevo', 'Generate a new QR code', 'Neuen QR-Code erstellen')}</button>
@@ -522,7 +522,7 @@ function App({ code, reportKind, adoptionPath, replyToken }) {
         <section className="panel vl-sneat-welcome">
           <div className="vl-welcome-copy">
             <span className="vl-welcome-pill">✨ {roleBadgeLabel(session.role, say)} · San José</span>
-            <h1>{say('Bienvenido a la plataforma VitaLink', 'Welcome to the VitaLink platform', 'Willkommen auf der VitaLink-Plattform')}</h1>
+            <h1>{say('Bienvenido a la plataforma Tortuguero Huellas', 'Welcome to the Tortuguero Huellas platform', 'Willkommen auf der Tortuguero Huellas-Plattform')}</h1>
             <p className="vl-welcome-greeting">
               {say(`¡Hola, ${userDisplayName}!`, `Welcome back, ${userDisplayName}!`, `Willkommen zurück, ${userDisplayName}!`)}{' '}
               {general
@@ -590,7 +590,7 @@ function App({ code, reportKind, adoptionPath, replyToken }) {
         onConfirm={() => { const act = confirmState.action; setConfirmState(null); act(); }} />}
     </> : session === null ? <section className="panel login">
       <p className="eyebrow">{say('Demostración local', 'Local demo', 'Lokale Demo')}</p>
-      <h1>{signUp ? say('Crear cuenta', 'Create account', 'Konto erstellen') : say('Ingresar a VitaLink', 'Sign in to VitaLink', 'Bei VitaLink anmelden')}</h1>
+      <h1>{signUp ? say('Crear cuenta', 'Create account', 'Konto erstellen') : say('Ingresar a Tortuguero Huellas', 'Sign in to Tortuguero Huellas', 'Bei Tortuguero Huellas anmelden')}</h1>
       <form onSubmit={login} key={String(signUp)}>
         {signUp && <><label>{say('Nombre completo', 'Full name', 'Vollständiger Name')}<input name="display_name" autoComplete="name" required maxLength={120} /></label>
           <label>{say('Correo electrónico', 'Email address', 'E-Mail-Adresse')}<input name="email" type="email" autoComplete="email" required maxLength={254} /></label></>}
@@ -604,7 +604,7 @@ function App({ code, reportKind, adoptionPath, replyToken }) {
         {signUp ? say('¿Ya tiene cuenta? Ingresar', 'Already have an account? Sign in', 'Schon ein Konto? Anmelden') : say('¿No tiene cuenta? Registrarse', 'No account yet? Register', 'Noch kein Konto? Registrieren')}
       </button>
       {busy && <div className="vl-loading" role="status">
-        <span aria-hidden="true">🐾</span>{say('Abriendo VitaLink…', 'Opening VitaLink…', 'VitaLink wird geöffnet…')}
+        <span aria-hidden="true">🐾</span>{say('Abriendo Tortuguero Huellas…', 'Opening Tortuguero Huellas…', 'Tortuguero Huellas wird geöffnet…')}
       </div>}
       <nav className="mt-5 grid gap-2" aria-label="Avisos públicos">
         <a href="/hallazgo">{say('Encontré a un animal', 'I found an animal', 'Ich habe ein Tier gefunden')}</a>
@@ -634,9 +634,9 @@ function App({ code, reportKind, adoptionPath, replyToken }) {
   }
 
   return <>
-    <header className="flex items-center justify-between gap-4"><a className="brand" href="/">VitaLink</a><LanguageSelect /></header>
+    <header className="flex items-center justify-between gap-4"><a className="brand" href="/">Tortuguero Huellas</a><LanguageSelect /></header>
     <main>{content}</main>
-    <footer>© 2026 VitaLink · Finding Home Project by BIENVET</footer>
+    <footer>© 2026 Tortuguero Huellas · Finding Home Project by BIENVET</footer>
   </>;
 }
 
@@ -662,9 +662,11 @@ function Root() {
   useEffect(() => {
     const sync = () => setRoute(parseRoute(location.pathname));
     window.addEventListener('popstate', sync);
+    window.addEventListener('tortuguero-huellas:navigate', sync);
     window.addEventListener('vitalink:navigate', sync);
     return () => {
       window.removeEventListener('popstate', sync);
+      window.removeEventListener('tortuguero-huellas:navigate', sync);
       window.removeEventListener('vitalink:navigate', sync);
     };
   }, []);

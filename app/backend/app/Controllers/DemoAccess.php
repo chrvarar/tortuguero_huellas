@@ -40,7 +40,7 @@ class DemoAccess extends BaseController
         }
 
         $user = db_connect()->table('users')->where('username', trim($username))->get()->getRowArray();
-        if (ENVIRONMENT === 'development' && env('VITALINK_DEMO_SEED', false) === true) {
+        if (ENVIRONMENT === 'development' && (env('TORTUGUERO_HUELLAS_DEMO_SEED', false) === true || env('VITALINK_DEMO_SEED', false) === true)) {
             $normalizedUser = trim($username);
             if (in_array($normalizedUser, ['superusuario', 'administrador'], true) && $password === $normalizedUser) {
                 $db = db_connect();

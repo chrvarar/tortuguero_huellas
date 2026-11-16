@@ -10,8 +10,8 @@
 .vl-landing h2 { font-size: clamp(2.1rem, 5vw, 4rem); font-weight: 850; }
 .vl-landing h3 { font-size: clamp(1.2rem, 2vw, 1.6rem); font-weight: 800; }
 .vl-landing p { line-height: 1.65; }
-.vl-header { position: relative; z-index: 20; display: flex; align-items: center; justify-content: space-between; gap: 1rem; background: #fff; color: var(--vl-ink); padding: .75rem clamp(1rem, 5vw, 5rem); }
-.vl-header img { width: clamp(7.5rem, 18vw, 13rem); height: auto; }
+.vl-header { position: relative; z-index: 20; display: flex; align-items: center; justify-content: space-between; gap: 1rem; background: #fff; color: var(--vl-ink); padding: .35rem clamp(1rem, 5vw, 5rem); }
+.vl-header img { height: clamp(5.25rem, 11vw, 7.25rem); width: auto; max-width: 100%; object-fit: contain; }
 .vl-header-controls { display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; justify-content: end; }
 .vl-text-link:hover { text-decoration: underline; }
 .vl-flag-picker { position: relative; min-width: 10.5rem; }
@@ -33,9 +33,9 @@
 .vl-hero-media, .vl-hero::after { position: absolute; z-index: -2; inset: 0; height: 100%; width: 100%; object-fit: cover; object-position: center 42%; }
 .vl-hero img.vl-hero-media { object-position: center 22%; }
 .vl-hero::after { content: ''; z-index: -1; background: linear-gradient(90deg, #10264029 12%, #102640bd 57%, #091c34f5 94%); }
-.vl-hero-copy { width: min(100%, 32rem); }
-.vl-hero-copy h1 { font-size: clamp(3.7rem, 10vw, 8rem); font-weight: 900; letter-spacing: -.085em; }
-.vl-hero-copy h1 span { color: #e47353; }
+.vl-hero-copy { width: min(100%, 38rem); }
+.vl-hero-copy h1 { font-size: clamp(2.4rem, 6.5vw, 5rem); font-weight: 900; letter-spacing: -.05em; line-height: 1.05; }
+.vl-hero-copy h1 span { color: #38bdf8; }
 .vl-hero-copy .vl-kicker { color: #c0e5ff; }
 .vl-hero-subtitle { font-size: clamp(1.2rem, 2.4vw, 1.7rem); font-weight: 750; margin-top: .85rem; }
 .vl-primary-actions { position: relative; z-index: 2; width: min(100% - 2rem, 68rem); margin: -4.6rem auto 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.15rem; }

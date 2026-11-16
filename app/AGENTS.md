@@ -1,8 +1,8 @@
-# VitaLink
+# Tortuguero Huellas
 
 ## Alcance y decisiones
 
-- `app/` es el espacio de desarrollo de VitaLink. Incorporar estructura y archivos a medida que las entregas los requieran.
+- `app/` es el espacio de desarrollo de Tortuguero Huellas. Incorporar estructura y archivos a medida que las entregas los requieran.
 - `documentacion/` es el espacio del usuario para documentos del proyecto y del sponsor. Leer documentos de esa carpeta cuando el usuario los comparta o lo solicite. Editar, mover, eliminar o generar archivos allí solo por solicitud explícita.
 - El usuario representa al sponsor y tiene la decisión final sobre el producto, el alcance y el desarrollo. Codex orquesta el trabajo, coordina los roles, integra sus entregas y presenta las decisiones que requieren resolución del usuario.
 
@@ -50,6 +50,6 @@ El equipo tiene 14 integrantes: el usuario, Codex como orquestador y 12 roles de
 
 ## Commits y sincronización
 
-- Verificá la rama activa antes de cada commit y push. La rama de trabajo acordada es `vitalink-v1.0.0`. Antes de confirmar el commit, revisá los cambios preparados.
+- Verificá la rama activa antes de cada commit y push. La rama de trabajo principal es `main`. Antes de confirmar el commit, revisá los cambios preparados.
 - Usá siempre el formato `[AAAA-MM-DD HH:mm:ss -06:00] Comentario del cambio` en el asunto. Registrá la fecha y hora reales del commit en `America/Costa_Rica` y escribí un comentario breve en español que describa el cambio concreto. Agregá un cuerpo si hace falta explicar el motivo o una decisión importante.
 - Revisá el estado de todo el repositorio y sincronizá los archivos del proyecto, incluidos los documentos que el usuario agregue o cambie, sin modificar su contenido. Los archivos temporales de herramientas quedan fuera del commit. Después de publicar, verificá que la rama local y la remota apunten al mismo commit y reportá cualquier pendiente.

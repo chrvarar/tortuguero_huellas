@@ -105,12 +105,12 @@ export function Shell({
 }) {
   const { say } = useLocale();
   const [menu, setMenu] = useState(() => matchMedia('(min-width: 56.01rem)').matches);
-  const [dark, setDark] = useState(() => localStorage.getItem('vitalink-theme') === 'dark');
+  const [dark, setDark] = useState(() => (localStorage.getItem('tortuguero-huellas-theme') || localStorage.getItem('vitalink-theme')) === 'dark');
   const [profileOpen, setProfileOpen] = useState(false);
   const content = useRef(null);
   const account = useRef(null);
 
-  useEffect(() => { localStorage.setItem('vitalink-theme', dark ? 'dark' : 'light'); }, [dark]);
+  useEffect(() => { localStorage.setItem('tortuguero-huellas-theme', dark ? 'dark' : 'light'); }, [dark]);
   useEffect(() => {
     if (profileOpen) {
       content.current?.scrollTo({ top: 0, behavior: 'smooth' });
@@ -181,7 +181,7 @@ export function Shell({
         <button type="button" className="vl-menu-toggle" aria-expanded={menu} aria-controls="shell-menu" onClick={() => setMenu(!menu)}>
           <span aria-hidden="true">☰</span> <span className="vl-menu-toggle-text">{say('Menú', 'Menu', 'Menü')}</span>
         </button>
-        <a className="vl-shell-logo" href="/" aria-label="VitaLink"><img src={logo} alt="VitaLink" /></a>
+        <a className="vl-shell-logo" href="/" aria-label="Tortuguero Huellas"><img src={logo} alt="Tortuguero Huellas" /></a>
         <div className="vl-shell-breadcrumb" aria-hidden="true">
           <span className="vl-crumb-group">{currentMeta.group}</span>
           <span className="vl-crumb-sep">/</span>
@@ -299,6 +299,6 @@ export function Shell({
         </div>
       </main>
     </div>
-    <footer className="vl-shell-footer">© 2026 VitaLink · {say('En asociación con', 'In partnership with', 'In Zusammenarbeit mit')} Finding Home Project by BIENVET</footer>
+    <footer className="vl-shell-footer">© 2026 Tortuguero Huellas · {say('En asociación con', 'In partnership with', 'In Zusammenarbeit mit')} Finding Home Project by BIENVET</footer>
   </div>;
 }

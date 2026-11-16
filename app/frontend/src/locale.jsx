@@ -15,11 +15,11 @@ const Locale = createContext(null);
 
 export function LocaleProvider({ children }) {
   const [language, setLanguage] = useState(() => {
-    const saved = localStorage.getItem('vitalink-language');
+    const saved = localStorage.getItem('tortuguero-huellas-language') || localStorage.getItem('vitalink-language');
     return languages.some(([code]) => code === saved) ? saved : 'es-CR';
   });
   useEffect(() => {
-    localStorage.setItem('vitalink-language', language);
+    localStorage.setItem('tortuguero-huellas-language', language);
     document.documentElement.lang = language;
   }, [language]);
 
