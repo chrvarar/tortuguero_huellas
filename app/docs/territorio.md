@@ -1,0 +1,11 @@
+# Catálogo territorial de Costa Rica
+
+Los formularios de hallazgo, extravío, registro y edición de expedientes presentan tres selectores dependientes: **Provincia → Cantón → Distrito**. El censo también permite filtrar por esos tres niveles. La demo inicia en San José, cantón San José, pero la persona puede escoger cualquier territorio del país.
+
+La base usa tres tablas: `provinces` (7), `cantons` (84) y `districts` (494). Cada cantón referencia su provincia y cada distrito referencia su cantón. El identificador interno de los distritos existentes se conserva para no romper expedientes ni avisos. `districts.official_code` guarda el código DTA; las columnas antiguas de nombres se conservan temporalmente para las consultas existentes.
+
+La fuente del catálogo es la [capa Distritos DTA 2026 del Instituto Geográfico Nacional](https://services8.arcgis.com/ZBOPqyeRLt7yJb3h/arcgis/rest/services/DTA/FeatureServer/2), accesible desde el [visor DTA 2026](https://www.arcgis.com/home/item.html?id=ec0469129dd247d899262f702f0df6c3). El archivo reproducible está en `app/backend/app/Database/Seeds/territory-2026.json` y se carga mediante la migración `CreateTerritoryCatalog`. El [PDF oficial DTA 2026](https://www.snitcr.go.cr/pdfs/ign_repositorio/DTA-TABLA%20POR%20PROVINCIA-CANT%C3%93N-DISTRITO%202026.pdf) informa 494 distritos, pero su primera tabla enumera 493; la capa cartográfica incluye el código 70605, Duacarí, Guácimo, Limón, que falta en esa tabla.
+
+La API `GET /api/distritos` devuelve los tres conjuntos relacionados. El formulario envía el ID interno del distrito; provincia y cantón sirven para guiar y filtrar la selección. El servidor usa el distrito guardado como ubicación canónica.
+
+Verificación local: la migración dejó 7 provincias, 84 cantones y 494 distritos; Carmen, Catedral y Zapote conservaron sus ID 1, 2 y 3. La API devolvió los tres conteos, el distrito Duacarí y filtros funcionales para el cantón San José (11 distritos) y Guácimo (5 distritos). La prueba focalizada `app/frontend/tests/territory-selects.mjs` pasó en Chrome a 390 píxeles: mostró las siete provincias, filtró los cantones y distritos de San José y Limón, y limpió las selecciones dependientes al cambiar de provincia. El build de Vite terminó correctamente.

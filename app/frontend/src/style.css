@@ -1,0 +1,1392 @@
+@import "tailwindcss";
+
+:root {
+  color: #132846;
+  background: #eef4fb;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+#root {
+  display: grid;
+  min-height: 100dvh;
+  grid-template-rows: auto 1fr auto;
+}
+header, footer {
+  background: #102a50;
+  color: #fff;
+  padding: 1rem clamp(1rem, 5vw, 4rem);
+}
+footer {
+  text-align: center;
+  font-size: .85rem;
+}
+.brand {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+main {
+  width: min(100% - 2rem, 68rem);
+  margin: 2rem auto;
+}
+h1 {
+  font-size: clamp(1.45rem, 3vw, 2.05rem);
+  font-weight: 850;
+  letter-spacing: -.025em;
+  line-height: 1.2;
+  margin-bottom: .5rem;
+}
+h2 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -.015em;
+}
+.panel {
+  background: #ffffff;
+  border: 1.5px solid #d4e3f5;
+  border-radius: 1.15rem;
+  padding: 1.45rem;
+  box-shadow: 0 .45rem 1.35rem #1026400d;
+  transition: border-color .25s ease, box-shadow .25s ease, transform .25s ease;
+}
+.vl-sneat-card:hover {
+  border-color: #96c0f0;
+  box-shadow: 0 .7rem 1.75rem #10264017;
+}
+.login, .public-profile {
+  max-width: 34rem;
+  margin: 2rem auto;
+}
+.eyebrow {
+  color: #2577eb;
+  font-size: .74rem;
+  font-weight: 850;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  margin-bottom: .25rem;
+}
+form {
+  display: grid;
+  gap: .95rem;
+  margin-top: 1rem;
+}
+label {
+  display: grid;
+  gap: .32rem;
+  font-size: .9rem;
+  font-weight: 700;
+  color: #1e3554;
+}
+.vl-territory-field {
+  display: grid;
+  gap: .32rem;
+}
+input, select, textarea {
+  border: 1.5px solid #bfd4ec;
+  background: #f9fbff;
+  color: #102640;
+  padding: .58rem .78rem;
+  border-radius: .6rem;
+  width: 100%;
+  font-size: .93rem;
+  transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+}
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  background: #ffffff;
+  border-color: #2577eb;
+  box-shadow: 0 0 0 3px #2577eb26;
+}
+button, .button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .45rem;
+  background: linear-gradient(135deg, #174caa 0%, #2577eb 100%);
+  color: #fff;
+  border: 1px solid transparent;
+  border-radius: .65rem;
+  padding: .6rem 1.05rem;
+  cursor: pointer;
+  font-weight: 750;
+  font-size: .9rem;
+  text-decoration: none;
+  box-shadow: 0 .3rem .75rem #174caa2e;
+  transition: transform .18s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
+}
+button:hover:not(:disabled), .button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 .45rem 1rem #174caa42;
+}
+button:disabled {
+  opacity: .65;
+  cursor: wait;
+}
+.secondary {
+  background: #e7f1fd;
+  color: #13396e;
+  border: 1px solid #c3daf6;
+  box-shadow: none;
+}
+.secondary:hover:not(:disabled) {
+  background: #d6e8fc;
+  border-color: #8ebcf0;
+  box-shadow: 0 .25rem .6rem #10264012;
+}
+.vl-btn-danger-soft {
+  background: #fff1f2;
+  color: #be123c;
+  border-color: #fecdd3;
+}
+.vl-btn-danger-soft:hover:not(:disabled) {
+  background: #ffe4e6;
+  border-color: #fda4af;
+}
+:focus-visible {
+  outline: 3px solid #2577eb;
+  outline-offset: 2px;
+}
+.notice {
+  background: #fff1f0;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+  padding: .8rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: .65rem;
+  font-weight: 650;
+}
+.vl-status-ok {
+  background: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+  padding: .7rem .95rem;
+  border-radius: .65rem;
+  font-weight: 700;
+}
+.qr-panel {
+  display: grid;
+  justify-items: start;
+  gap: .85rem;
+}
+.qr-panel img {
+  width: min(13rem, 100%);
+}
+.qr-panel a:not(.button) {
+  color: #174caa;
+  font-weight: 750;
+  text-decoration: underline;
+}
+.public-profile img {
+  border-radius: .75rem;
+  max-height: 24rem;
+  margin-bottom: 1rem;
+}
+.vl-language {
+  width: auto;
+  max-width: 100%;
+  background: white;
+  color: #132846;
+  color-scheme: light;
+  font-size: .85rem;
+}
+
+/* =========================================================
+   SNEAT INSPIRED APPSHELL LAYOUT (FIXED FRAME + PROTAGONIST)
+   ========================================================= */
+.vl-shell {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  height: 100dvh;
+  max-height: 100dvh;
+  overflow: hidden;
+  background: #eef4fb;
+  color: #132846;
+}
+.vl-shell-header {
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .85rem;
+  padding: .65rem clamp(.85rem, 2.2vw, 1.75rem);
+  background: #ffffffeb;
+  color: #102640;
+  border-bottom: 1px solid #d5e4f5;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 .25rem 1rem #1026400a;
+}
+.vl-shell-header-left {
+  display: flex;
+  align-items: center;
+  gap: .85rem;
+  min-width: 0;
+}
+.vl-menu-toggle {
+  background: #edf4fc;
+  color: #13396e;
+  border: 1px solid #c6dcf6;
+  box-shadow: none;
+  padding: .48rem .75rem;
+  border-radius: .6rem;
+  font-size: .86rem;
+}
+.vl-menu-toggle:hover {
+  background: #dcebfb;
+  border-color: #2577eb;
+}
+.vl-shell-logo {
+  display: inline-flex;
+  align-items: center;
+  flex: none;
+}
+.vl-shell-logo img {
+  display: block;
+  width: 6.8rem;
+  height: auto;
+  max-height: 2.35rem;
+  object-fit: contain;
+  border-radius: .35rem;
+}
+.vl-shell-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: .45rem;
+  padding-left: .75rem;
+  border-left: 1px solid #d5e4f5;
+  font-size: .88rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.vl-crumb-group {
+  color: #5b728e;
+  font-weight: 600;
+}
+.vl-crumb-sep {
+  color: #9cb4cf;
+}
+.vl-crumb-current {
+  color: #102640;
+  font-weight: 800;
+}
+.vl-shell-controls {
+  display: flex;
+  gap: .6rem;
+  align-items: center;
+  margin-left: auto;
+}
+.vl-canton-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .38rem .75rem;
+  border-radius: 999px;
+  background: #eaf3ff;
+  border: 1px solid #c2dcf7;
+  color: #144579;
+  font-size: .78rem;
+  font-weight: 800;
+}
+.vl-canton-dot {
+  width: .45rem;
+  height: .45rem;
+  border-radius: 50%;
+  background: #2577eb;
+  box-shadow: 0 0 0 3px #2577eb2e;
+}
+.vl-theme-btn {
+  background: #edf4fc;
+  color: #13396e;
+  border: 1px solid #c6dcf6;
+  box-shadow: none;
+  padding: .48rem .78rem;
+  font-size: .85rem;
+}
+.vl-theme-btn:hover {
+  background: #dcebfb;
+  border-color: #2577eb;
+}
+
+/* Profile Avatar & Dropdown */
+.vl-profile-menu {
+  position: relative;
+}
+.vl-profile-menu summary {
+  list-style: none;
+  cursor: pointer;
+  border-radius: 50%;
+}
+.vl-profile-menu summary::-webkit-details-marker {
+  display: none;
+}
+.vl-avatar-ring {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 2.55rem;
+  height: 2.55rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #174caa 0%, #2577eb 100%);
+  color: #ffffff;
+  font-weight: 800;
+  font-size: .88rem;
+  border: 2px solid #96c3f7;
+  box-shadow: 0 .25rem .6rem #174caa33;
+  transition: transform .2s ease, border-color .2s ease;
+}
+.vl-profile-menu summary:hover .vl-avatar-ring {
+  transform: scale(1.05);
+  border-color: #2577eb;
+}
+.vl-avatar-lg {
+  width: 2.85rem;
+  height: 2.85rem;
+  flex: none;
+}
+.vl-online-dot {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: .68rem;
+  height: .68rem;
+  border-radius: 50%;
+  background: #22c55e;
+  border: 2px solid #ffffff;
+}
+.vl-profile-dropdown {
+  position: absolute;
+  z-index: 40;
+  right: 0;
+  top: calc(100% + .55rem);
+  display: grid;
+  gap: .35rem;
+  min-width: 15.5rem;
+  padding: .85rem;
+  background: #ffffff;
+  color: #102640;
+  border: 1.5px solid #c8ddf4;
+  border-radius: .95rem;
+  box-shadow: 0 .9rem 2.2rem #0b1f3b2e;
+}
+.vl-profile-dropdown-head {
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+  padding: .2rem .25rem .4rem;
+}
+.vl-role-pill {
+  display: inline-block;
+  margin-top: .15rem;
+  padding: .14rem .55rem;
+  border-radius: 999px;
+  background: #e6f0fd;
+  color: #174caa;
+  border: 1px solid #bfd8f5;
+  font-size: .72rem;
+  font-weight: 800;
+}
+.vl-dropdown-divider {
+  border: 0;
+  border-top: 1px solid #e1ecf8;
+  margin: .2rem 0;
+}
+.vl-dropdown-item {
+  width: 100%;
+  justify-content: flex-start;
+  background: transparent;
+  color: #1e3554;
+  border: 0;
+  box-shadow: none;
+  padding: .55rem .65rem;
+  border-radius: .55rem;
+  font-size: .88rem;
+  font-weight: 700;
+}
+.vl-dropdown-item:hover {
+  background: #eef5fe;
+  color: #174caa;
+  transform: none;
+  box-shadow: none;
+}
+.vl-dropdown-danger:hover {
+  background: #fff1f2;
+  color: #be123c;
+}
+.vl-avatar-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Body: Fixed Sidebar + Scrollable Protagonist Area */
+.vl-shell-body {
+  min-height: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  position: relative;
+  overflow: hidden;
+}
+.vl-sneat-sidebar {
+  display: none;
+  flex-direction: column;
+  gap: 1.15rem;
+  background: linear-gradient(180deg, #0d2240 0%, #122d54 100%);
+  color: #dbeafe;
+  padding: 1.15rem .85rem;
+  border-right: 1px solid #1e4276;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+.vl-menu-open .vl-shell-body {
+  grid-template-columns: 16.5rem minmax(0, 1fr);
+}
+.vl-menu-open .vl-sneat-sidebar {
+  display: flex;
+}
+.vl-sidebar-group {
+  display: grid;
+  gap: .28rem;
+}
+.vl-sidebar-heading {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .35rem .65rem .25rem;
+  font-size: .68rem;
+  font-weight: 850;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: #7da6d8;
+}
+.vl-sidebar-heading::before {
+  content: "";
+  width: .85rem;
+  height: 1.5px;
+  background: #3b6ca8;
+  border-radius: 2px;
+}
+.vl-nav-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+  padding: .62rem .8rem;
+  border-radius: .68rem;
+  color: #cfe3fb;
+  font-size: .89rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background .2s ease, color .2s ease, transform .18s ease, box-shadow .2s ease;
+}
+.vl-nav-link:hover {
+  background: #1a3b6e;
+  color: #ffffff;
+  transform: translateX(2px);
+}
+.vl-nav-link.is-active {
+  background: linear-gradient(90deg, #174caa 0%, #2577eb 100%);
+  color: #ffffff;
+  box-shadow: 0 .35rem .9rem #08182f66, inset 0 1px 0 #63b3ff59;
+}
+.vl-nav-link.is-active::after {
+  content: "";
+  position: absolute;
+  right: -.85rem;
+  top: 20%;
+  height: 60%;
+  width: .26rem;
+  border-radius: .25rem 0 0 .25rem;
+  background: #63b3ff;
+}
+.vl-nav-icon {
+  display: grid;
+  place-items: center;
+  width: 1.3rem;
+  height: 1.3rem;
+  flex: none;
+  opacity: .92;
+}
+.vl-nav-icon svg {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+.vl-nav-text {
+  flex: 1;
+  line-height: 1.25;
+}
+.vl-nav-badge {
+  padding: .1rem .5rem;
+  border-radius: 999px;
+  background: #ffffff24;
+  color: #ffffff;
+  font-size: .74rem;
+  font-weight: 800;
+}
+
+/* Protagonist Main Canvas */
+.vl-shell-main {
+  width: 100%;
+  margin: 0;
+  min-height: 0;
+  height: 100%;
+  overflow-y: auto;
+  padding: clamp(1rem, 2.5vw, 1.85rem);
+  scroll-behavior: smooth;
+}
+.vl-protagonist-container {
+  max-width: 78rem;
+  margin: 0 auto;
+}
+.vl-view-stack {
+  display: grid;
+  gap: 1.35rem;
+}
+.vl-shell-main [id] {
+  scroll-margin-top: 1rem;
+}
+.vl-shell-footer {
+  z-index: 20;
+  background: #ffffff;
+  color: #4b6482;
+  border-top: 1px solid #d5e4f5;
+  padding: .55rem 1rem;
+  font-size: .8rem;
+  font-weight: 650;
+}
+
+/* =========================================================
+   SNEAT DASHBOARD WIDGETS & CARDS
+   ========================================================= */
+.vl-sneat-hero-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 1.25rem;
+  align-items: stretch;
+}
+.vl-sneat-welcome {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  background: linear-gradient(135deg, #ffffff 0%, #eff6ff 65%, #dbeafe 100%);
+  border: 2px solid #b8d3f2;
+  overflow: hidden;
+}
+.vl-welcome-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  padding: .25rem .7rem;
+  border-radius: 999px;
+  background: #dfedfc;
+  color: #174caa;
+  border: 1px solid #b8d3f2;
+  font-size: .76rem;
+  font-weight: 800;
+  margin-bottom: .55rem;
+}
+.vl-welcome-greeting {
+  color: #354c68;
+  font-size: .94rem;
+  line-height: 1.55;
+  margin-top: .35rem;
+  max-width: 54ch;
+}
+.vl-welcome-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .55rem;
+  margin-top: 1.1rem;
+}
+.vl-welcome-art {
+  width: 8.2rem;
+  height: 8.2rem;
+  display: grid;
+  place-items: center;
+  border-radius: 1.15rem;
+  background: radial-gradient(circle at 50% 40%, #ffffff 0%, #cfe4fb 100%);
+  border: 1.5px solid #b8d3f2;
+  padding: .5rem;
+  box-shadow: 0 .45rem 1.1rem #10264014;
+}
+.vl-welcome-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.vl-sneat-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .95rem;
+}
+.vl-kpi-card {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.1rem 1.2rem;
+  border: 1.5px solid #cfe1f5;
+  transition: transform .24s ease, border-color .24s ease, box-shadow .24s ease;
+}
+.vl-kpi-card:hover {
+  transform: translateY(-3px);
+  border-color: #2577eb;
+  box-shadow: 0 .75rem 1.6rem #1026401f, 0 0 0 2px #3b8ef333;
+}
+.vl-kpi-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .5rem;
+  margin-bottom: .55rem;
+}
+.vl-kpi-icon {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: .7rem;
+  font-size: 1.2rem;
+}
+.vl-kpi-icon.is-blue { background: #e0effe; color: #174caa; }
+.vl-kpi-icon.is-emerald { background: #dcfce7; color: #15803d; }
+.vl-kpi-icon.is-amber { background: #fef3c7; color: #b45309; }
+.vl-kpi-icon.is-rose { background: #ffe4e6; color: #be123c; }
+.vl-kpi-tag {
+  font-size: .72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: #5b728e;
+}
+.vl-kpi-value {
+  font-size: 1.55rem;
+  font-weight: 900;
+  color: #102640;
+  line-height: 1.15;
+}
+.vl-kpi-label {
+  font-size: .8rem;
+  color: #4b6482;
+  margin-top: .2rem;
+}
+
+/* Card Headers, Forms & Census Bars */
+.vl-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: .75rem 1rem;
+  padding-bottom: .9rem;
+  margin-bottom: .85rem;
+  border-bottom: 1px solid #e2edf9;
+}
+.vl-card-subtitle {
+  color: #526a87;
+  font-size: .9rem;
+  margin-top: .2rem;
+}
+.vl-census-total-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  padding: .45rem .9rem;
+  border-radius: .75rem;
+  background: linear-gradient(135deg, #102640 0%, #1b52a4 100%);
+  color: #ffffff;
+  font-size: .88rem;
+  box-shadow: 0 .35rem .85rem #10264026;
+}
+.vl-census-total-pill strong {
+  font-size: 1.15rem;
+  font-weight: 900;
+}
+.vl-sneat-filter-bar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10.5rem, 1fr));
+  gap: .75rem;
+  align-items: end;
+  background: #f5f9ff;
+  border: 1px solid #d7e6f8;
+  padding: .95rem;
+  border-radius: .85rem;
+}
+.vl-filter-submit button {
+  width: 100%;
+}
+.counts.vl-sneat-counts {
+  margin: .95rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: .65rem;
+}
+.counts.vl-sneat-counts li {
+  display: grid;
+  gap: .32rem;
+  padding: .55rem .75rem;
+  border-radius: .65rem;
+  background: #f9fbff;
+  border: 1px solid #e2edf9;
+}
+.vl-count-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: .9rem;
+}
+.vl-district-name {
+  font-weight: 700;
+  color: #173459;
+}
+.vl-progress-track {
+  width: 100%;
+  height: .42rem;
+  border-radius: 999px;
+  background: #dfeafa;
+  overflow: hidden;
+}
+.vl-progress-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #174caa 0%, #2577eb 100%);
+  transition: width .35s ease;
+}
+
+.vl-form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  gap: .85rem;
+}
+.vl-records-grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+}
+.vl-record-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  padding: .55rem .9rem;
+  border-radius: .75rem;
+  text-align: left;
+}
+.vl-record-pill.is-selected {
+  background: linear-gradient(135deg, #102640 0%, #2577eb 100%);
+  color: #ffffff;
+  border-color: #174caa;
+}
+.vl-record-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+.vl-record-info small {
+  font-size: .74rem;
+  opacity: .85;
+}
+.vl-search-input {
+  max-width: 19rem;
+}
+.vl-qr-showcase {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem;
+  padding: .85rem;
+  border-radius: .9rem;
+  background: #f5f9ff;
+  border: 1px solid #d7e6f8;
+  width: 100%;
+}
+.vl-qr-frame {
+  padding: .6rem;
+  background: #ffffff;
+  border: 1.5px solid #c5dcf7;
+  border-radius: .8rem;
+  box-shadow: 0 .35rem .85rem #10264012;
+}
+.vl-status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: .3rem .75rem;
+  border-radius: 999px;
+  font-size: .8rem;
+  font-weight: 800;
+}
+.vl-status-badge.is-success {
+  background: #dcfce7;
+  color: #166534;
+  border: 1px solid #86efac;
+}
+.vl-status-badge.is-muted {
+  background: #f1f5f9;
+  color: #475569;
+  border: 1px solid #cbd5e1;
+}
+.vl-sneat-two-col {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
+  gap: 1.35rem;
+  align-items: start;
+}
+.vl-embedded-form .public-profile {
+  max-width: none;
+  margin: 0;
+}
+
+/* Profile & Users */
+.vl-profile-form {
+  max-width: 40rem;
+  margin: 0 auto 1.25rem;
+}
+.vl-profile-hero {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: .85rem 1rem;
+  background: #f5f9ff;
+  border: 1px solid #d7e6f8;
+  border-radius: .85rem;
+  margin-bottom: 1rem;
+}
+.vl-avatar-preview {
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  width: 4.5rem;
+  height: 4.5rem;
+  background: linear-gradient(135deg, #174caa 0%, #2577eb 100%);
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 1.3rem;
+  border: 3px solid #96c3f7;
+  flex: none;
+}
+.vl-profile-name {
+  font-size: 1.15rem;
+  color: #102640;
+}
+.vl-profile-meta {
+  font-size: .88rem;
+  color: #4b6482;
+}
+.vl-form-hint {
+  font-size: .8rem;
+  color: #5b728e;
+}
+.vl-check-inline {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+.vl-users-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 22rem) minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+.vl-sub-heading {
+  font-size: 1rem;
+  font-weight: 800;
+  margin-bottom: .75rem;
+  color: #102640;
+}
+.vl-user-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: .55rem;
+}
+.vl-user-row {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  padding: .65rem .85rem;
+  border-radius: .75rem;
+  background: #f8fbff;
+  border: 1px solid #d8e7f8;
+}
+.vl-user-avatar {
+  display: grid;
+  place-items: center;
+  width: 2.35rem;
+  height: 2.35rem;
+  border-radius: 50%;
+  background: #dfedfc;
+  color: #174caa;
+  font-weight: 800;
+  font-size: .82rem;
+  flex: none;
+}
+.vl-user-handle {
+  color: #5b728e;
+  font-size: .78rem;
+}
+
+/* Dark Theme Support */
+.vl-dark {
+  color-scheme: dark;
+  background: #0b1524;
+  color: #e7f0fb;
+}
+.vl-dark .vl-shell-header,
+.vl-dark .vl-shell-footer {
+  background: #101f33;
+  color: #e7f0fb;
+  border-color: #243b58;
+}
+.vl-dark .vl-crumb-current,
+.vl-dark .vl-kpi-value,
+.vl-dark .vl-sub-heading,
+.vl-dark .vl-profile-name,
+.vl-dark .vl-district-name,
+.vl-dark label {
+  color: #f1f5f9;
+}
+.vl-dark .panel,
+.vl-dark .vl-profile-dropdown {
+  background: #14253d;
+  border-color: #294366;
+  color: #e7f0fb;
+}
+.vl-dark .vl-sneat-welcome {
+  background: linear-gradient(135deg, #14253d 0%, #173256 100%);
+  border-color: #2f5687;
+}
+.vl-dark .vl-welcome-greeting,
+.vl-dark .vl-card-subtitle,
+.vl-dark .vl-kpi-label {
+  color: #b6cce6;
+}
+.vl-dark .vl-sneat-filter-bar,
+.vl-dark .counts.vl-sneat-counts li,
+.vl-dark .vl-qr-showcase,
+.vl-dark .vl-profile-hero,
+.vl-dark .vl-user-row {
+  background: #0f1d30;
+  border-color: #253d5c;
+}
+.vl-dark input,
+.vl-dark select,
+.vl-dark textarea {
+  background: #0d192a;
+  color: #f1f5f9;
+  border-color: #324f75;
+}
+.vl-dark .secondary,
+.vl-dark .vl-menu-toggle,
+.vl-dark .vl-theme-btn {
+  background: #1d3454;
+  color: #e2eeff;
+  border-color: #355682;
+}
+.vl-dark .vl-dropdown-item {
+  color: #e2eeff;
+}
+.vl-dark .vl-dropdown-item:hover {
+  background: #1f395c;
+  color: #9ad0ff;
+}
+.vl-dark .eyebrow,
+.vl-dark .qr-panel a:not(.button) {
+  color: #7ec0ff;
+}
+
+.vl-loading {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  margin-top: .75rem;
+}
+.vl-confirm-modal {
+  border: 0;
+  background: transparent;
+  padding: 1rem;
+  margin: auto;
+  max-width: 28rem;
+  width: 100%;
+}
+.vl-confirm-modal::backdrop {
+  background: rgb(16 42 80 / .55);
+}
+.vl-loading span {
+  display: inline-block;
+  animation: vl-loading-spin 1.6s linear infinite;
+}
+@keyframes vl-loading-spin {
+  to { transform: rotate(360deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .vl-loading span { animation: none; }
+}
+@media (max-width: 64rem) {
+  .vl-sneat-hero-grid,
+  .vl-users-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 56rem) {
+  .vl-menu-open .vl-shell-body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .vl-menu-open .vl-sneat-sidebar {
+    position: absolute;
+    z-index: 35;
+    inset: 0 auto 0 0;
+    width: min(84%, 17rem);
+    box-shadow: 0 .8rem 2.2rem #06132680;
+  }
+  .vl-shell-breadcrumb,
+  .vl-canton-badge {
+    display: none;
+  }
+}
+@media (max-width: 38rem) {
+  .vl-sneat-welcome {
+    grid-template-columns: 1fr;
+  }
+  .vl-welcome-art {
+    display: none;
+  }
+  .vl-sneat-kpi-grid {
+    grid-template-columns: 1fr;
+  }
+  .vl-shell-controls {
+    gap: .35rem;
+  }
+  .vl-shell-logo img {
+    width: 5.4rem;
+  }
+}
+
+/* ==========================================================================
+   VitaLink - Área de Carga de Fotografías (PhotoUploadArea)
+   ========================================================================== */
+
+.vl-photo-field {
+  display: grid;
+  gap: 0.55rem;
+  margin: 0.35rem 0 0.65rem;
+}
+
+.vl-photo-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.vl-photo-label {
+  font-size: 0.92rem;
+  font-weight: 750;
+  color: #102640;
+  margin: 0;
+}
+
+.vl-optional-badge {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #4b6482;
+}
+
+.vl-photo-counter {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #2577eb;
+  background: #e9f2fc;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  flex-shrink: 0;
+}
+
+.vl-field-help {
+  font-size: 0.82rem;
+  color: #4b6482;
+  line-height: 1.35;
+  margin: 0;
+}
+
+/* Grilla de 3 ranuras */
+.vl-photo-slots {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.65rem;
+  margin-top: 0.25rem;
+}
+
+/* Ranura individual */
+.vl-photo-slot {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.4rem;
+  background: #f8fbff;
+  border: 1.5px dashed #bfd4ec;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  width: 100%;
+}
+
+.vl-photo-slot:focus-visible {
+  outline: 2px solid #2577eb;
+  outline-offset: 2px;
+  border-color: #2577eb;
+}
+
+/* Estado vacío */
+.vl-photo-slot.is-empty:hover {
+  background: #edf5fe;
+  border-color: #2577eb;
+  transform: translateY(-1px);
+}
+
+.vl-slot-empty-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.2rem;
+}
+
+.vl-slot-icon {
+  font-size: 1.35rem;
+  opacity: 0.8;
+}
+
+.vl-slot-text {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #102640;
+  line-height: 1.2;
+}
+
+.vl-slot-add-text {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: #2577eb;
+}
+
+/* Estado con fotografía cargada */
+.vl-photo-slot.is-filled {
+  border-style: solid;
+  border-color: #d4e3f5;
+  padding: 0;
+  cursor: default;
+  box-shadow: 0 2px 6px #1026400d;
+}
+
+.vl-photo-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.vl-slot-caption {
+  position: absolute;
+  bottom: 0;
+  inset-inline: 0;
+  background: linear-gradient(180deg, transparent 0%, #071a37c2 100%);
+  color: #ffffff;
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 0.6rem 0.35rem 0.25rem;
+  text-align: center;
+  pointer-events: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Botón para remover foto */
+.vl-photo-remove {
+  position: absolute;
+  top: 0.3rem;
+  right: 0.3rem;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  background: #102640d6;
+  color: #ffffff;
+  border: 1px solid #ffffff66;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  line-height: 1;
+  padding: 0;
+  cursor: pointer;
+  box-shadow: 0 2px 4px #00000033;
+  transition: background 0.15s ease, transform 0.15s ease;
+  z-index: 2;
+}
+
+.vl-photo-remove:hover {
+  background: #e11d48;
+  transform: scale(1.1);
+}
+
+.vl-photo-remove:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 1px;
+}
+
+/* Estado Dragging */
+.vl-photo-slots.is-dragging {
+  border: 2px dashed #2577eb;
+  border-radius: 0.85rem;
+  background: #edf5fe80;
+}
+
+/* Feedback y validación */
+.vl-photo-feedback {
+  font-size: 0.8rem;
+  color: #0369a1;
+  background: #f0f9ff;
+  border-left: 3px solid #0284c7;
+  padding: 0.45rem 0.65rem;
+  border-radius: 0.35rem;
+  margin-top: 0.35rem;
+}
+
+/* Adaptación para pantallas muy pequeñas (< 360px) */
+@media (max-width: 360px) {
+  .vl-photo-slots {
+    gap: 0.4rem;
+  }
+  .vl-slot-text {
+    font-size: 0.66rem;
+  }
+  .vl-slot-icon {
+    font-size: 1.15rem;
+  }
+}
+
+/* ==========================================================================
+   VITALINK SPLASH & LOADER: HUELLITAS CAMINANDO EN CÍRCULO
+   ========================================================================== */
+
+:root {
+  --vl-paw-color: #1b52a4;
+  --vl-paw-glow: rgba(27, 82, 164, 0.35);
+}
+
+.vl-dark {
+  --vl-paw-color: #7ec0ff;
+  --vl-paw-glow: rgba(126, 192, 255, 0.55);
+}
+
+/* Contenedor Overlay de Pantalla Completa: velo translúcido tenue, nunca blanco plano */
+.vl-paw-splash {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: grid;
+  place-items: center;
+  background: rgba(8, 22, 42, 0.45);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  transition: opacity 0.25s ease;
+  pointer-events: auto;
+}
+
+/* Tarjeta flotante central del splash */
+.vl-paw-splash-box {
+  background: #ffffff;
+  border: 1.5px solid #d4e3f5;
+  border-radius: 1.6rem;
+  padding: 1.6rem;
+  box-shadow: 0 1.2rem 3.5rem rgba(8, 22, 42, 0.28);
+  display: grid;
+  place-items: center;
+}
+
+.vl-dark .vl-paw-splash-box {
+  background: #101f33;
+  border-color: #294366;
+  box-shadow: 0 1.2rem 3.5rem rgba(0, 0, 0, 0.6);
+}
+
+/* Contenedor en línea (dentro de modales o paneles) */
+.vl-paw-inline-container {
+  display: grid;
+  place-items: center;
+  padding: 2.5rem 1rem;
+  width: 100%;
+}
+
+/* Escenario Circular de las Huellas */
+.vl-paw-circle {
+  margin: auto;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Ranura fija para cada posición en la circunferencia */
+.vl-paw-slot {
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Glifo de la huella: aparece, dura 1 segundo y se desvanece al siguiente */
+.vl-paw-glyph {
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: var(--vl-paw-color);
+  filter: drop-shadow(0 2px 5px var(--vl-paw-glow));
+  opacity: 0;
+  transform: scale(0.85);
+  transition: opacity 0.22s ease-out, transform 0.22s ease-out;
+}
+
+.vl-paw-glyph svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Estado activo: pisada viva */
+.vl-paw-glyph.is-active {
+  opacity: 1;
+  transform: scale(1.08);
+}
+
+/* Accesibilidad y Reducción de Movimiento */
+@media (prefers-reduced-motion: reduce) {
+  .vl-paw-glyph {
+    transition: none;
+    opacity: 0.25;
+    transform: scale(0.95);
+  }
+  .vl-paw-glyph.is-active {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+.vl-paw-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
