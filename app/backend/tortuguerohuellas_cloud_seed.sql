@@ -166,8 +166,8 @@ CREATE TABLE `animals` (
 LOCK TABLES `animals` WRITE;
 /*!40000 ALTER TABLE `animals` DISABLE KEYS */;
 INSERT INTO `animals` VALUES
-(1,'943961c088b8db70f74cbce29fc517af','Luna','perro','hogar','activo',1,'Ubicación ficticia para la demostración',NULL,NULL,NULL,NULL,'943961c088b8db70f74cbce29fc517af'),
-(2,'3f9671a58ae8f4086b54e3ce7b0ea197','Toby','perro','calle','activo',1,'Ubicación ficticia para la demostración',NULL,NULL,NULL,NULL,'3f9671a58ae8f4086b54e3ce7b0ea197'),
+(1,'943961c088b8db70f74cbce29fc517af','Luna','perro','hogar','activo',1,'Ubicación ficticia para la demostración',NULL,'943961c088b8db70f74cbce29fc517af.webp',NULL,NULL,'943961c088b8db70f74cbce29fc517af'),
+(2,'3f9671a58ae8f4086b54e3ce7b0ea197','Toby','perro','calle','activo',1,'Ubicación ficticia para la demostración',NULL,'3f9671a58ae8f4086b54e3ce7b0ea197.webp',NULL,NULL,'3f9671a58ae8f4086b54e3ce7b0ea197'),
 (3,'3eb07ed1e84c6d91efe0d2685f7ac7fc','Mora','perro','albergue','activo',2,'Ubicación ficticia para la demostración',NULL,'3eb07ed1e84c6d91efe0d2685f7ac7fc.webp',NULL,NULL,'3eb07ed1e84c6d91efe0d2685f7ac7fc'),
 (4,'dec69d0babcae768edada7c5820858ff','Nube','perro','calle','archivado',1,'Ubicación ficticia para la demostración',NULL,NULL,NULL,NULL,'dec69d0babcae768edada7c5820858ff'),
 (5,'198f88f074bda1b6d8deced41082356c','Chispa','perro','hogar','inactivo',1,'Ubicación ficticia para la demostración',NULL,NULL,NULL,NULL,'198f88f074bda1b6d8deced41082356c'),

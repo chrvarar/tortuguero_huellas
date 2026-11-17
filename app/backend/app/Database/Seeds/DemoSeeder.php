@@ -50,6 +50,7 @@ class DemoSeeder extends Seeder
 
         foreach ($animals as [$name, $species, $condition, $status, $district]) {
             $code = substr(hash('sha256', 'vitalink-demo:' . $name), 0, 32);
+            $photoPath = is_file(WRITEPATH . 'uploads/animals/' . $code . '.webp') ? $code . '.webp' : null;
             $this->findOrInsert('animals', [
                 'public_code' => $code,
             ], [
@@ -60,6 +61,7 @@ class DemoSeeder extends Seeder
                 'status' => $status,
                 'district_id' => $districtIds[$district],
                 'address' => 'Ubicación ficticia para la demostración',
+                'photo_path' => $photoPath,
             ]);
         }
 
